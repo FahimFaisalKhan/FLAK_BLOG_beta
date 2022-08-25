@@ -38,7 +38,8 @@ gravatar = Gravatar(app,
 # CONNECT TO DB
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
     'DATABASE_URL').replace("://", "ql://", 1)
-
+print(os.getenv(
+    'DATABASE_URL').replace("://", "ql://", 1))
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -85,7 +86,7 @@ class Comment(db.Model):
         db.Integer, db.ForeignKey("flask_blog.user_final.id"))
     parent = relationship('Users', back_populates='comment', lazy=True)
     comment_of_post = db.Column(
-        db.Integer, db.ForeignKey("blog_posts_final.id"))
+        db.Integer, db.ForeignKey("flask_blog.blog_posts_final.id"))
     parent_2 = relationship('BlogPost', back_populates='comment', lazy=True)
     text = db.Column(db.Text, nullable=False)
 
