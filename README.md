@@ -2,4 +2,4 @@
 
 This site is made with flask frame work , with jinja templating language and postgresql Database
 
-Site URL: https://flask-app-beta.herokuapp.com/
+
